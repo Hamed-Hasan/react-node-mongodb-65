@@ -6,7 +6,7 @@ const AddUser = () => {
         const name = event.target.name.value;
         const email = event.target.email.value;
 
-        const user = {name, email};
+        const addUser = {name, email};
 
         // send data to server
         fetch('http://localhost:5000/user', {
@@ -14,7 +14,7 @@ const AddUser = () => {
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(addUser)
         })
         .then(res => res.json())
         .then(data => {
@@ -22,6 +22,19 @@ const AddUser = () => {
             alert('user added successfully')
             event.target.reset()
         })
+        // fetch('http://localhost:5000/user', {
+        //     method: 'POST',
+        //     headers: {
+        //         "content-type": "application/json"
+        //     },
+        //     body: JSON.stringify(user)
+        // })
+        // .then(res => res.json())
+        // .then(data => {
+        //     console.log(data)
+        //     alert('user added successfully')
+        //     event.target.reset()
+        // })
     }
     return (
         <div>
